@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Popolare tabella dinamicamente</title>
+</head>
+<body>
+    <table id="table1">
+        <th>ID</th>
+        <th>NOME</th>
+        <th>COGNOME</th>
+        <th>EMAIL</th>
+        <th>CODICE FISCALE</th>
+    </table>
+    
+    <script>
+        const data = [
+            {
+                id: 1,
+                nome: 'alberto',
+                cognome: 'palo',
+                email: 'albertopalo@libero.it',
+                codiceFiscale: 'affdfa95ff4fd8'
+            },
+            
+            {
+                id: 2,
+                nome: 'luca',
+                cognome: 'palo',
+                email: 'lucapalo@libero.it',
+                codiceFiscale: 'affdfa95ff4fd8'
+            },
+            
+        ]
+        const table = document.getElementById('table1');
+
+    data.forEach(element => {
+        const row = document.createElement('tr');
+
+        Object.keys(element).forEach(key => {
+            const column = document.createElement('td');
+            const text = document.createTextNode(element[key]);
+            column.appendChild(text);
+            row.appendChild(column);
+        });
+        
+        table.appendChild(row)
+    });
+    </script>
+</body>
+</html>
